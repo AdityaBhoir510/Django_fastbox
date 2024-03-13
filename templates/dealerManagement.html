@@ -1,0 +1,67 @@
+{% extends 'baseDash.html' %}
+
+{% block main %}
+<main id="main" class="main">
+    <div class="pagetitle">
+        <h1>Dealer Management</h1>
+    </div><!-- End Page Title -->
+    {% if msg %}
+    <div class="alert alert-success" role="alert">
+        {{msg}}
+    </div>
+    {% endif %}
+    {% if errmsg %}
+    <div class="alert alert-danger" role="alert">
+        {{errmsg}}
+    </div>
+    {% endif %}
+    {% if dealer %}
+    <section class="section">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="card">
+                    <div class="card-body">
+                        <!-- Table with stripped rows -->
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>#</th>
+                                    <th>Name</th>
+                                    <th>City</th>
+                                    <th>Pincode</th>
+                                    <th>Country</th>
+                                    <th>email</th>
+                                    <th>Joining Date</th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for x in dealer %}
+                                <tr>
+                                    <td>{{forloop.counter}}</td>
+                                    <td>{{x.firstname}}&nbsp;{{x.lastname}}</td>
+                                    <td>{{x.city}}</td>
+                                    <td>{{x.pincode}}</td>
+                                    <td>{{x.country}}</td>
+                                    <td>{{x.email}}</td>
+                                    <td>{{x.jdate}}</td>
+                                    <td><a href="/manageD/{{x.id}}" class="href"><button type="button" class="btn btn-warning">Manage</button></a></td>
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                        <!-- End Table with stripped rows -->
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+    
+    {% else %}
+    <div class="d-flex justify-content-center align-items-center" style="height: 50vh;">
+        <h4 class="text-center text-danger">No Dealer Found !</h4>
+    </div>
+    {% endif %}
+</main>
+{% endblock main %}

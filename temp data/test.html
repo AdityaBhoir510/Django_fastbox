@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% load static %}
+{% block main %}
+	<div class="container p-5 text-center mt-5 bg-secondary text-light">
+		<!-- write the button toggle css here -->
+		<div class="btn-group">
+			<button class="btn btn-outline-light">btn1</button>
+			<button class="btn btn-outline-light btn-active">btn2</button>
+			<button class="btn btn-outline-light">btn3</button>
+		</div>
+		<div class="container d-flex flex-column">
+			<div class="bg-success">
+				<section class="row text-center" id="tracker"> section 2</section>
+			</div>
+			<div class="bg-danger">
+				<section class="row text-center" id="cal"> section 1</section>
+			</div>
+			<div class="bg-primary">
+				<section class="row text-center" id="ship"> section 3</section>
+			</div>
+		</div>
+	</div>
+{% endblock main %}
